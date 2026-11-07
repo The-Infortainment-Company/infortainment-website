@@ -1,4 +1,13 @@
 :root {
+  /* TM-line glitch tuning. To kill it: remove class="glitch" from the
+     .name line in index.html. The burst lasts 15% of the interval
+     (12s -> 1.8s), so keep the interval between about 10s and 14s. */
+  --tm-glitch-interval: 12s; /* time from the start of one burst to the next */
+  --tm-glitch-delay: 5s;     /* wait before the first burst (offsets it from other glitches) */
+  --tm-glitch-offset: 3px;   /* horizontal shift of the flicker layers */
+  --tm-glitch-flash: #fff;   /* flicker colours */
+  --tm-glitch-shade: #5a0000;
+
   --red: #f90a0a;
   --black: #000;
   --white: #fff;
@@ -35,6 +44,7 @@ main {
   max-width: 72rem;
   flex: 1;
   padding: clamp(1.5rem, 6dvh, 4rem) 1.25rem 0;
+  overflow-x: clip;
 }
 
 .logo {
@@ -97,8 +107,82 @@ footer {
   outline-offset: 3px;
 }
 
+/* TM-line glitch: transform and opacity only. Delete this block (and the
+   glitch class in index.html) to remove it. */
+.glitch {
+  position: relative;
+  animation: tm-glitch-host var(--tm-glitch-interval) steps(1, end) var(--tm-glitch-delay) infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.glitch::before {
+  color: var(--tm-glitch-flash);
+  animation: tm-glitch-a var(--tm-glitch-interval) steps(1, end) var(--tm-glitch-delay) infinite;
+}
+
+.glitch::after {
+  color: var(--tm-glitch-shade);
+  animation: tm-glitch-b var(--tm-glitch-interval) steps(1, end) var(--tm-glitch-delay) infinite;
+}
+
+/* One burst occupies the first 15% of each cycle, then rests. */
+@keyframes tm-glitch-host {
+  0%, 100% { transform: none; }
+  1%   { transform: translateX(calc(var(--tm-glitch-offset) * -0.5)); }
+  3%   { transform: translateX(calc(var(--tm-glitch-offset) * 0.7)); }
+  6%   { transform: none; }
+  8%   { transform: translateX(calc(var(--tm-glitch-offset) * -0.7)); }
+  9%   { transform: none; }
+  12%  { transform: translateX(calc(var(--tm-glitch-offset) * 0.4)); }
+  13%  { transform: none; }
+}
+
+@keyframes tm-glitch-a {
+  0%, 100% { opacity: 0; transform: none; }
+  1%   { opacity: 1; transform: translateX(var(--tm-glitch-offset)); }
+  2.5% { opacity: 0; }
+  4%   { opacity: 1; transform: translateX(calc(var(--tm-glitch-offset) * -1)); }
+  5%   { opacity: 0; }
+  8%   { opacity: 1; transform: translateX(calc(var(--tm-glitch-offset) * 1.3)); }
+  9.5% { opacity: 0; }
+  12%  { opacity: 1; transform: translateX(var(--tm-glitch-offset)); }
+  13%  { opacity: 0; }
+}
+
+@keyframes tm-glitch-b {
+  0%, 100% { opacity: 0; transform: none; }
+  2%   { opacity: 1; transform: translateX(calc(var(--tm-glitch-offset) * -1)); }
+  3.5% { opacity: 0; }
+  6%   { opacity: 1; transform: translateX(var(--tm-glitch-offset)); }
+  7%   { opacity: 0; }
+  10%  { opacity: 1; transform: translateX(calc(var(--tm-glitch-offset) * -1.3)); }
+  11%  { opacity: 0; }
+  13.5% { opacity: 1; transform: translateX(calc(var(--tm-glitch-offset) * -1)); }
+  14.5% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ig {
     transition: none;
+  }
+
+  .glitch,
+  .glitch::before,
+  .glitch::after {
+    animation: none;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    display: none;
   }
 }
