@@ -39,9 +39,10 @@
 }
 
 html {
-  /* This page sets its own (dark) scheme. Stops browser auto-dark-mode (e.g. Samsung
-     Internet) from recolouring the page. */
-  color-scheme: dark;
+  /* Keep this as "light" even though the page is dark. It tells browser
+     auto-dark-mode (Samsung Internet) to leave the page's own colours alone;
+     declaring "dark" made Samsung re-darken the page and wash out the red. */
+  color-scheme: light;
 }
 
 *,
