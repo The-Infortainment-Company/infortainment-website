@@ -34,12 +34,11 @@ main {
   width: 100%;
   max-width: 72rem;
   flex: 1;
-  justify-content: center;
-  padding: 2rem 1.25rem 0;
+  padding: clamp(1.5rem, 6dvh, 4rem) 1.25rem 0;
 }
 
 .logo {
-  width: clamp(140px, 16vw, 200px);
+  width: clamp(112px, 13vw, 160px);
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--white);
@@ -57,7 +56,8 @@ main {
 }
 
 h1 {
-  margin: clamp(1.5rem, 5dvh, 3rem) 0 0;
+  margin: auto 0 0;
+  padding-top: 1.5rem;
   font-size: clamp(2.5rem, 12vw, 7rem);
   font-weight: 900;
   line-height: 1.02;
@@ -67,7 +67,7 @@ h1 {
 }
 
 .name {
-  margin: 0.75rem 0 0;
+  margin: 0.75rem 0 auto;
   font-size: clamp(1.05rem, 3.6vw, 1.6rem);
   font-weight: 500;
 }
