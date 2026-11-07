@@ -1,10 +1,10 @@
 :root {
   /* Motion tuning. Every effect repeats on one shared cycle. The keyframes
-     are written for a 12.2s cycle: a 2.2s glitch sequence plus a 10s rest.
+     are written for a 11.8s cycle: a 1.8s glitch sequence plus a 10s rest.
      If you change --fx-cycle, the burst lengths scale with it.
      Kill switches: remove class="glitch" (company-name line) or
      class="glitch-head" (headline) from index.html, or the .tm span's class. */
-  --fx-cycle: 12.2s;
+  --fx-cycle: 11.8s;
 
   /* Start offsets inside the cycle. Keep the bursts from overlapping:
      headline 1.5-1.95s, rolling TM 3.2-4.1s, TM line 5-7.2s. */
@@ -152,105 +152,105 @@ footer {
 .glitch-head::before { animation: hd-glitch-a var(--fx-cycle) steps(1, end) var(--hd-glitch-delay) infinite; }
 .glitch-head::after { animation: hd-glitch-b var(--fx-cycle) steps(1, end) var(--hd-glitch-delay) infinite; }
 
-/* Rolling TM: one 360-degree barrel roll per cycle (0.9s). */
+/* Rolling TM: one full 360-degree rotation per cycle (0.9s). */
 .tm {
   display: inline-block;
   animation: tm-roll var(--fx-cycle) ease-in-out var(--tm-roll-delay) infinite;
 }
 
 @keyframes tm-roll {
-  0%      { transform: perspective(240px) rotateX(0deg); }
-  7.377%  { transform: perspective(240px) rotateX(360deg); }
-  100%    { transform: perspective(240px) rotateX(360deg); }
+  0%      { transform: rotate(0deg); }
+  7.627%  { transform: rotate(360deg); }
+  100%    { transform: rotate(360deg); }
 }
 
 @keyframes tm-glitch-host {
   0% { transform: none; }
-  0.246% { transform: translateX(calc(var(--tm-glitch-offset) * -0.32)); }
-  1.23% { transform: translateX(calc(var(--tm-glitch-offset) * 0.4)); }
-  2.213% { transform: none; }
-  2.951% { transform: translateX(calc(var(--tm-glitch-offset) * -0.48)); }
-  3.934% { transform: translateX(calc(var(--tm-glitch-offset) * 0.24)); }
-  4.918% { transform: none; }
-  13.361% { transform: translateX(calc(var(--tm-glitch-offset) * 0.32)); }
-  14.344% { transform: translateX(calc(var(--tm-glitch-offset) * -0.4)); }
-  15.328% { transform: none; }
-  16.066% { transform: translateX(calc(var(--tm-glitch-offset) * 0.48)); }
-  17.049% { transform: translateX(calc(var(--tm-glitch-offset) * -0.24)); }
-  18.033% { transform: none; }
+  0.254% { transform: translateX(calc(var(--tm-glitch-offset) * -0.32)); }
+  1.271% { transform: translateX(calc(var(--tm-glitch-offset) * 0.4)); }
+  2.288% { transform: none; }
+  3.051% { transform: translateX(calc(var(--tm-glitch-offset) * -0.48)); }
+  4.068% { transform: translateX(calc(var(--tm-glitch-offset) * 0.24)); }
+  5.085% { transform: none; }
+  10.424% { transform: translateX(calc(var(--tm-glitch-offset) * 0.32)); }
+  11.441% { transform: translateX(calc(var(--tm-glitch-offset) * -0.4)); }
+  12.458% { transform: none; }
+  13.22% { transform: translateX(calc(var(--tm-glitch-offset) * 0.48)); }
+  14.237% { transform: translateX(calc(var(--tm-glitch-offset) * -0.24)); }
+  15.254% { transform: none; }
 }
 
 @keyframes tm-glitch-a {
   0% { opacity: 1; clip-path: inset(10% 0 55% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1)); }
-  0.738% { opacity: 1; clip-path: inset(55% 0 12% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.8)); }
-  1.475% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  1.967% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.3)); }
-  2.705% { opacity: 1; clip-path: inset(0 0 70% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.7)); }
-  3.443% { opacity: 1; clip-path: inset(60% 0 5% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.2)); }
-  4.18% { opacity: 1; clip-path: inset(20% 0 50% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.8)); }
-  4.918% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  13.115% { opacity: 1; clip-path: inset(10% 0 55% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1)); }
-  13.852% { opacity: 1; clip-path: inset(55% 0 12% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.8)); }
-  14.59% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  15.082% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.3)); }
-  15.82% { opacity: 1; clip-path: inset(0 0 70% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.7)); }
-  16.557% { opacity: 1; clip-path: inset(60% 0 5% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.2)); }
-  17.295% { opacity: 1; clip-path: inset(20% 0 50% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.8)); }
-  18.033% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  0.763% { opacity: 1; clip-path: inset(55% 0 12% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.8)); }
+  1.525% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  2.034% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.3)); }
+  2.797% { opacity: 1; clip-path: inset(0 0 70% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.7)); }
+  3.559% { opacity: 1; clip-path: inset(60% 0 5% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.2)); }
+  4.322% { opacity: 1; clip-path: inset(20% 0 50% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.8)); }
+  5.085% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  10.169% { opacity: 1; clip-path: inset(10% 0 55% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1)); }
+  10.932% { opacity: 1; clip-path: inset(55% 0 12% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.8)); }
+  11.695% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  12.203% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.3)); }
+  12.966% { opacity: 1; clip-path: inset(0 0 70% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.7)); }
+  13.729% { opacity: 1; clip-path: inset(60% 0 5% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.2)); }
+  14.492% { opacity: 1; clip-path: inset(20% 0 50% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.8)); }
+  15.254% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
 }
 
 @keyframes tm-glitch-b {
   0% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  0.393% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.1)); }
-  1.23% { opacity: 1; clip-path: inset(5% 0 65% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.9)); }
-  1.721% { opacity: 1; clip-path: inset(65% 0 0 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.4)); }
-  2.213% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  2.951% { opacity: 1; clip-path: inset(25% 0 45% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.2)); }
-  3.689% { opacity: 1; clip-path: inset(50% 0 20% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.9)); }
-  4.426% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1)); }
-  4.918% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  13.115% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  13.508% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.1)); }
-  14.344% { opacity: 1; clip-path: inset(5% 0 65% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.9)); }
-  14.836% { opacity: 1; clip-path: inset(65% 0 0 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.4)); }
-  15.328% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  16.066% { opacity: 1; clip-path: inset(25% 0 45% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.2)); }
-  16.803% { opacity: 1; clip-path: inset(50% 0 20% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.9)); }
-  17.541% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1)); }
-  18.033% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  0.407% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.1)); }
+  1.271% { opacity: 1; clip-path: inset(5% 0 65% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.9)); }
+  1.78% { opacity: 1; clip-path: inset(65% 0 0 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.4)); }
+  2.288% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  3.051% { opacity: 1; clip-path: inset(25% 0 45% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.2)); }
+  3.814% { opacity: 1; clip-path: inset(50% 0 20% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.9)); }
+  4.576% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1)); }
+  5.085% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  10.169% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  10.576% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.1)); }
+  11.441% { opacity: 1; clip-path: inset(5% 0 65% 0); transform: translateX(calc(var(--tm-glitch-offset) * 0.9)); }
+  11.949% { opacity: 1; clip-path: inset(65% 0 0 0); transform: translateX(calc(var(--tm-glitch-offset) * -1.4)); }
+  12.458% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  13.22% { opacity: 1; clip-path: inset(25% 0 45% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1.2)); }
+  13.983% { opacity: 1; clip-path: inset(50% 0 20% 0); transform: translateX(calc(var(--tm-glitch-offset) * -0.9)); }
+  14.746% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translateX(calc(var(--tm-glitch-offset) * 1)); }
+  15.254% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
 }
 
 @keyframes hd-glitch-host {
   0% { transform: none; }
-  0.184% { transform: translateX(calc(var(--hd-glitch-offset) * -0.32)); }
-  0.922% { transform: translateX(calc(var(--hd-glitch-offset) * 0.4)); }
-  1.66% { transform: none; }
-  2.213% { transform: translateX(calc(var(--hd-glitch-offset) * -0.48)); }
-  2.951% { transform: translateX(calc(var(--hd-glitch-offset) * 0.24)); }
-  3.689% { transform: none; }
+  0.191% { transform: translateX(calc(var(--hd-glitch-offset) * -0.32)); }
+  0.953% { transform: translateX(calc(var(--hd-glitch-offset) * 0.4)); }
+  1.716% { transform: none; }
+  2.288% { transform: translateX(calc(var(--hd-glitch-offset) * -0.48)); }
+  3.051% { transform: translateX(calc(var(--hd-glitch-offset) * 0.24)); }
+  3.814% { transform: none; }
 }
 
 @keyframes hd-glitch-a {
   0% { opacity: 1; clip-path: inset(10% 0 55% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1)); }
-  0.553% { opacity: 1; clip-path: inset(55% 0 12% 0); transform: translateX(calc(var(--hd-glitch-offset) * 0.8)); }
-  1.107% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  1.475% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1.3)); }
-  2.029% { opacity: 1; clip-path: inset(0 0 70% 0); transform: translateX(calc(var(--hd-glitch-offset) * 0.7)); }
-  2.582% { opacity: 1; clip-path: inset(60% 0 5% 0); transform: translateX(calc(var(--hd-glitch-offset) * 1.2)); }
-  3.135% { opacity: 1; clip-path: inset(20% 0 50% 0); transform: translateX(calc(var(--hd-glitch-offset) * -0.8)); }
-  3.689% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  0.572% { opacity: 1; clip-path: inset(55% 0 12% 0); transform: translateX(calc(var(--hd-glitch-offset) * 0.8)); }
+  1.144% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  1.525% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1.3)); }
+  2.097% { opacity: 1; clip-path: inset(0 0 70% 0); transform: translateX(calc(var(--hd-glitch-offset) * 0.7)); }
+  2.669% { opacity: 1; clip-path: inset(60% 0 5% 0); transform: translateX(calc(var(--hd-glitch-offset) * 1.2)); }
+  3.242% { opacity: 1; clip-path: inset(20% 0 50% 0); transform: translateX(calc(var(--hd-glitch-offset) * -0.8)); }
+  3.814% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
 }
 
 @keyframes hd-glitch-b {
   0% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  0.295% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translateX(calc(var(--hd-glitch-offset) * 1.1)); }
-  0.922% { opacity: 1; clip-path: inset(5% 0 65% 0); transform: translateX(calc(var(--hd-glitch-offset) * -0.9)); }
-  1.291% { opacity: 1; clip-path: inset(65% 0 0 0); transform: translateX(calc(var(--hd-glitch-offset) * 1.4)); }
-  1.66% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
-  2.213% { opacity: 1; clip-path: inset(25% 0 45% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1.2)); }
-  2.766% { opacity: 1; clip-path: inset(50% 0 20% 0); transform: translateX(calc(var(--hd-glitch-offset) * 0.9)); }
-  3.32% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1)); }
-  3.689% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  0.305% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translateX(calc(var(--hd-glitch-offset) * 1.1)); }
+  0.953% { opacity: 1; clip-path: inset(5% 0 65% 0); transform: translateX(calc(var(--hd-glitch-offset) * -0.9)); }
+  1.335% { opacity: 1; clip-path: inset(65% 0 0 0); transform: translateX(calc(var(--hd-glitch-offset) * 1.4)); }
+  1.716% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+  2.288% { opacity: 1; clip-path: inset(25% 0 45% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1.2)); }
+  2.86% { opacity: 1; clip-path: inset(50% 0 20% 0); transform: translateX(calc(var(--hd-glitch-offset) * 0.9)); }
+  3.432% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translateX(calc(var(--hd-glitch-offset) * -1)); }
+  3.814% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
