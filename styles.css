@@ -36,6 +36,12 @@
   --white: #fff;
 }
 
+html {
+  /* This page is light-only. Stops browser auto-dark-mode (e.g. Samsung
+     Internet) from recolouring the red background, text and logo. */
+  color-scheme: light;
+}
+
 *,
 *::before,
 *::after {
