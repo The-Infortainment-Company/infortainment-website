@@ -34,12 +34,14 @@
   --red: #f90a0a;
   --black: #000;
   --white: #fff;
+  --bg: #121212;   /* soft near-black page background */
+  --ink: #f5f5f5;  /* Instagram icon */
 }
 
 html {
-  /* This page is light-only. Stops browser auto-dark-mode (e.g. Samsung
-     Internet) from recolouring the red background, text and logo. */
-  color-scheme: light;
+  /* This page sets its own (dark) scheme. Stops browser auto-dark-mode (e.g. Samsung
+     Internet) from recolouring the page. */
+  color-scheme: dark;
 }
 
 *,
@@ -49,7 +51,7 @@ html {
 }
 
 html {
-  background: var(--red);
+  background: var(--bg);
 }
 
 body {
@@ -58,8 +60,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--red);
-  color: var(--black);
+  background: var(--bg);
+  color: var(--red);
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-synthesis: none;
   text-align: center;
@@ -122,7 +124,7 @@ footer {
   place-items: center;
   width: 48px;
   height: 48px;
-  color: var(--black);
+  color: var(--ink);
   border-radius: 50%;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
@@ -133,7 +135,7 @@ footer {
 }
 
 .ig:focus-visible {
-  outline: 3px solid var(--black);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
