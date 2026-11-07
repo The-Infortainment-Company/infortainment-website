@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter-900-latin.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Motion tuning. Every effect repeats on one shared cycle. The keyframes
      are written for a 31.8s cycle: a 1.8s glitch sequence plus a 30s rest.
@@ -73,6 +81,8 @@ main {
 }
 
 h1 {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-synthesis: none;
   margin: auto 0 0;
   padding-top: 1.5rem;
   font-size: clamp(2.5rem, 12vw, 7rem);

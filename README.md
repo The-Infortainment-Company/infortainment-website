@@ -6,7 +6,7 @@ Single-page landing site. Plain HTML and CSS: no framework, no build step, no Ja
 
 - `index.html`: the page
 - `styles.css`: all styles
-- `assets/`: logo, favicon (`favicon.ico`, `apple-touch-icon.png`) and social image (`og-image.png`)
+- `assets/`: logo, favicon (`favicon.ico`, `apple-touch-icon.png`), social image (`og-image.png`) and `fonts/` (self-hosted Inter Black for the headline, SIL OFL)
 
 ## Preview locally
 
