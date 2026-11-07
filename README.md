@@ -20,5 +20,5 @@ Then open http://localhost:8000.
 
 - Background red is `#f90a0a`.
 - `assets/favicon.ico`, `assets/apple-touch-icon.png` and `assets/og-image.png` are placeholders generated from the logo. Replace them with final artwork when ready.
-- The `og:image` and `twitter:image` URLs are relative. Social platforms need absolute URLs, so update them to the full domain once hosting is set up.
+- `og:image`, `twitter:image` and the canonical link use absolute URLs on https://infortainments.com/.
 - Not deployed yet.

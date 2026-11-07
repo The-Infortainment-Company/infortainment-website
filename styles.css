@@ -22,9 +22,9 @@
      .tm span's class from index.html. */
   --fx-cycle: 31.8s;
 
-  /* Start offset inside the cycle for the name-line glitch (5-6.8s on the first cycle).
+  /* Start offset inside the cycle for the name-line glitch (first fires 30s after page load).
      The TM itself rolls non-stop. */
-  --tm-glitch-delay: 5s;
+  --tm-glitch-delay: 30s;
   --tm-roll-duration: 1.5s;      /* time for one full turn of the continuously rolling TM */
 
   --tm-glitch-offset: 6px;     /* slice shift on the company-name line */
